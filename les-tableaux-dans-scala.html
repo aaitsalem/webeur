@@ -111,7 +111,7 @@
                         </li>
                     </ul>
 
-                    <h3>1- Définition et création d'un tableau </h3>
+                    <h3 style="text-decoration: underline">1- Définition et création d'un tableau </h3>
                     <p>Le tableau est une classe Array qui se définit ici : <a href="http://www.scala-lang.org/api/2.6.0/scala/Array.html">http://www.scala-lang.org/api/2.6.0/scala/Array.html</a>
 Création d’un tableau :</p>
                     <blockquote>val  tab = new Array [Int] (10)</blockquote>
@@ -122,7 +122,7 @@ Création d’un tableau :</p>
                     <blockquote>val  tab = Array (1,2,3,4,5,6,7,8,9,10)</blockquote>
                     <p>Nous pouvons aussi créer des tableaux avec plusieurs dimensions dans cette exemple un tableau à 2 dimensions</p>
                     <blockquote>val  mat = Array.ofDim[Int](3,9)</blockquote>
-                    <h3>2- Accès et update des éléments du tableau</h3>
+                    <h3 style="text-decoration: underline">2- Accès et update des éléments du tableau</h3>
                     <p>Tous les cas de figure et exemples utiliseront : </p>
                     <blockquote>val tab = Array (1,2,3,4,5)</blockquote>
                     <p>L’accès aux éléments du tableau de fait par l’indice du tableau comme ceci : </p>
@@ -134,7 +134,7 @@ Création d’un tableau :</p>
                     <p>Pour modifier un élément d’un  tableau c’est simple, faudra juste affecter la valeur voulue, pour cela nous avons deux façons de le faire  </p>
                     <blockquote>Tab(2)=4   </blockquote>
                     <p>ou bien avec la méthode update de Array  tab.update(2,4)   ou 2 est l’indice et 4 la valeur </p>
-                    <h3>3- Les itérations sur le tableau</h3>
+                    <h3 style="text-decoration: underline">3- Les itérations sur le tableau</h3>
                     <p>Nous avons plusieurs manière d’itérer sur un tableau : Itération avec un indice, boucle FOR, WHILE, FOR/UNTIL … avec des syntaxes plus ou moins différentes.</p>
                     <h4>Itération avec indice</h4>
                     <blockquote>var j=0
@@ -148,7 +148,7 @@ j=j+1
                     <h4>Boucle FOREACH </h4>
                     <p>La méthode que j’utilise le plus pour itérer sur un tableau </p>
                     <blockquote>tab.foreach ( e => println (e))</blockquote>
-                    <h3>4- Les transformations sur les tableaux</h3><p></p>
+                    <h3 style="text-decoration: underline">4- Les transformations sur les tableaux</h3><p></p>
                     <h4>La transformation avec FOR / YIELD</h4>
                     <p>En gros appliquer un for / yield sur un tableau, revient à créer un nouveau tableau de même type bien sûr , dans cette exemple on va créer un nouveau tableau où ses element seront des multiples de « 2 » des elements du tableau « tab »</p>
                     <blockquote>val tab2 = for (e <- tab) yield  e*2 </blockquote>
