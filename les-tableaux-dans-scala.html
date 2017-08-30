@@ -50,15 +50,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="post.html">Sample Post</a>
-                    </li>
+
                     <li>
                         <a href="contact.html">Contact</a>
                     </li>
@@ -102,88 +94,84 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                   Les tableaux dans scala
--	Définition d’un tableau 
--	Accès et update des éléments du tableau
--	Les itérations et transformations sur le tableau
+                    <h2 class="section-heading">Les tableaux dans scala</h2>
 
-1-Définition et création de tableau 
-Le tableau est une classe Array qui se définit ici : http://www.scala-lang.org/api/2.6.0/scala/Array.html
-Création d’un tableau :
-val  tab = new Array [Int] (10)      
-Où le type d’élément du tableau est de type Int , le tableau ne peut contenir  que des éléments de mêmes types, dans notre cas nous avons un tableau de 10 éléments de type Int
-Nous avons aussi la possibilité de créer une instance d’un tableau comme ceci : 
-val  tab = Array.apply (1,2,3,4,5,6,7,8,9,10) 
-Ou bien en omettant d’utilise le apply qui et une fonction cachée comme il l’en n’existe beaucoup dans scala
-val  tab = Array (1,2,3,4,5,6,7,8,9,10) 
-Nous pouvons aussi créer des tableaux avec plusieurs dimensions dans cette exemple un tableau à 2 dimensions
-Val  mat = Array.ofDim[Int](3,9)
-2- Accès et update des éléments du tableau
-Tous les cas de figure et exemples utiliseront : 
-val tab = Array (1,2,3,4,5)
-L’accès aux éléments du tableau de fait par l’indice du tableau comme ceci
-val  e  = tab(2)
-Où l’indice commence par 0 donc dans notre cas 
-e=3
-Ou bien via « apply » qui se trouve dans la classe Array qui permet de définir une instance de la classe Array
-val  e  = tab.apply(2)    // on tombe sur le même résultat cad e=3 
-Pour modifier un élément d’un  tableau c’est simple, faudra juste affecter la valeur voulue, pour cela nous avons deux façons de le faire  
-Tab(2)=4    ou bien avec la méthode update de Array  tab.update(2,4)   ou 2 est l’indice et 4 la valeur 
-3-Les itérations et transformations sur le tableau
-Nous avons plusieurs manière d’itérer sur un tableau : Itération avec un indice, boucle FOR, WHILE, FOR/UNTIL … avec des syntaxes plus ou moins différentes.
-Itération avec indice :
-var j=0
-while (j<tab.legth) {
+                    <ul>
+                        <li>
+                            Définition d’un tableau
+                        </li>
+                        <li>
+                            Accès et update des éléments du tableau
+                        </li>
+                        <li>
+                            Les itérations et les transformations sur les tableaux
+                        </li>
+                    </ul>
+
+                    <h3>1-Définition et création d'un tableau </h3>
+                    <p>Le tableau est une classe Array qui se définit ici : <a href="http://www.scala-lang.org/api/2.6.0/scala/Array.html">http://www.scala-lang.org/api/2.6.0/scala/Array.html</a>
+Création d’un tableau :</p>
+                    <blockquote>val  tab = new Array [Int] (10)</blockquote>
+                    <p>Où le type d’élément du tableau est de type Int , le tableau ne peut contenir  que des éléments de mêmes types, dans notre cas nous avons un tableau de 10 éléments de type Int </p>
+                    <p>Nous avons aussi la possibilité de créer une instance d’un tableau comme ceci :</p>
+                    <blockquote>val  tab = Array.apply (1,2,3,4,5,6,7,8,9,10)</blockquote>
+                    <p>Ou bien en omettant d’utilise le apply qui et une fonction cachée comme il l’en n’existe beaucoup dans scala</p>
+                    <blockquote>val  tab = Array (1,2,3,4,5,6,7,8,9,10)</blockquote>
+                    <p>Nous pouvons aussi créer des tableaux avec plusieurs dimensions dans cette exemple un tableau à 2 dimensions</p>
+                    <blockquote>val  mat = Array.ofDim[Int](3,9)</blockquote>
+                    <h3>2- Accès et update des éléments du tableau</h3>
+                    <p>Tous les cas de figure et exemples utiliseront : </p>
+                    <blockquote>val tab = Array (1,2,3,4,5)</blockquote>
+                    <p>L’accès aux éléments du tableau de fait par l’indice du tableau comme ceci : </p>
+                    <blockquote>val  e  = tab(2)</blockquote>
+                    <p>Où l’indice commence par 0 donc dans notre cas e=3</p>
+                    <p>Ou bien via « apply » qui se trouve dans la classe Array qui permet de définir une instance de la classe Array</p>
+                    <blockquote>val  e  = tab.apply(2)    // on tombe sur le même résultat cad e=3</blockquote>
+
+                    <p>Pour modifier un élément d’un  tableau c’est simple, faudra juste affecter la valeur voulue, pour cela nous avons deux façons de le faire  </p>
+                    <blockquote>Tab(2)=4   </blockquote>
+                    <p>ou bien avec la méthode update de Array  tab.update(2,4)   ou 2 est l’indice et 4 la valeur </p>
+                    <h3>3-Les itérations et transformations sur le tableau</h3>
+                    <p>Nous avons plusieurs manière d’itérer sur un tableau : Itération avec un indice, boucle FOR, WHILE, FOR/UNTIL … avec des syntaxes plus ou moins différentes.</p>
+                    <h4>Itération avec indice</h4>
+                    <blockquote>var j=0
+while (j < tab.legth) {
 println (tab(j)) 
 j=j+1
-}
-Boucle FOR avec syntaxe particulière 
-for (e <- tab) println(e)
-Boucle FOREACH 
-La méthode que j’utilise le plus pour itérer sur un tableau 
-tab.foreach ( e => println (e))
- La transformation avec FOR / YIELD
-En gros appliqué un for / yield sur un tableau, revient à créer un nouveau tableau de même type bien sûr , dans cette exemple on va créer un nouveau tableau où ses element seront des multiples de « 2 » des elements du tableau « tab »
-val tab2 = for (e <- tab) yield  e*2 
-Calcul des propriétés d’un tableau et sélection d’une partie d’un tableau
-tab.sum  // return la somme des éléments de tab 
-tab.take(2)  // return un tableau avec les 2 premiers éléments  de tab a parti de l’indice 2  
-Plusieurs autres calculs sur les propriétés d’un tableau  existent dans la class Array : http://www.scala-lang.org/api/2.6.0/scala/Array.html
-filter
-La méthode permet de filtrer un tableau et de sélectionner qu’une partie par rapport a la condition du filtre 
-val  filtre = tab.flter ( e => e <= 2 ) 
- Ou bien avec le for / yield
-val filtre = for ( e <- tab if e <=2) yield e 
+                        }
+                    </blockquote>
+                    <h4>Boucle FOR avec syntaxe particulière</h4>
+                    <blockquote>for (e <- tab) println(e)</blockquote>
+                    <h4>Boucle FOREACH </h4>
+                    <p>La méthode que j’utilise le plus pour itérer sur un tableau </p>
+                    <blockquote>tab.foreach ( e => println (e))</blockquote>
+                    <h4>La transformation avec FOR / YIELD</h4>
+                    <p>En gros appliqué un for / yield sur un tableau, revient à créer un nouveau tableau de même type bien sûr , dans cette exemple on va créer un nouveau tableau où ses element seront des multiples de « 2 » des elements du tableau « tab »</p>
+                    <blockquote>val tab2 = for (e <- tab) yield  e*2 </blockquote>
+                    <h4>Calcul des propriétés d’un tableau et sélection d’une partie d’un tableau</h4>
+                    <blockquote>tab.sum  // return la somme des éléments de tab </blockquote>
+                    <blockquote>tab.take(2)  // return un tableau avec les 2 premiers éléments  de tab a parti de l’indice 2  </blockquote>
+                    <p>Plusieurs autres calculs sur les propriétés d’un tableau  existent dans la class Array : <a href="http://www.scala-lang.org/api/2.6.0/scala/Array.html">http://www.scala-lang.org/api/2.6.0/scala/Array.html</a></p>
+                    <h4>filter</h4>
+                    <p>La méthode permet de filtrer un tableau et de sélectionner qu’une partie par rapport a la condition du filtre </p>
+                    <blockquote>val  filtre = tab.flter ( e => e <= 2 ) </blockquote>
+                    <p>Ou bien avec le for / yield</p>
+                    <blockquote>val filtre = for ( e <- tab if e <=2) yield e </blockquote>
 
-map 
-permet de transformer et d‘itérer sur les éléments d’un tableau  pour en créer un nouveau  tab[A]  -> tab[B]
-val  map=tab.map (e => e*2)
-On obtiendra un nouveau tableau de « tab » ou les éléments du premier seront multiplies par 2
-sortWith
-Permet de trier un tableau 
-val sortWith = tab.sortWith ( (e1,e2) => e1<e2) 
-reduce
-tient son nom de « réduction  » : essaie de réduire le tableau à une valeur , cad transforme chaque couple de tableau en une valeur jusqu’aà obtenir une valeur finale 
-tab.reduce ((e1,e2)=> e1+e2)
-Dans cet exemple ca revient à faire la somme des éléments du tableau 
+                    <h4>map </h4>
+                    <p>permet de transformer et d‘itérer sur les éléments d’un tableau  pour en créer un nouveau  tab[A]  -> tab[B]</p>
+                    <blockquote>val  map=tab.map (e => e*2)</blockquote>
+                    <p>On obtiendra un nouveau tableau de « tab » ou les éléments du premier seront multiplies par 2</p>
+                    <h4>sortWith</h4>
+                    <p>Permet de trier un tableau </p>
+                    <blockquote>val sortWith = tab.sortWith((e1,e2) => e1 < e2) </blockquote>
+                    <h4>reduce</h4>
+                    <p>Tient son nom de « réduction  » : essaie de réduire le tableau à une valeur , cad transforme chaque couple de tableau en une valeur jusqu’aà obtenir une valeur finale </p>
+                    <blockquote>tab.reduce ((e1,e2)=> e1+e2)</blockquote>
+                    <p>Dans cet exemple ca revient à faire la somme des éléments du tableau </p>
 
-Liste des opérations exhaustives sont dans http://www.scala-lang.org/api/2.6.0/scala/Array.html
+                    <p>La liste des opérations sont dans <a href="http://www.scala-lang.org/api/2.6.0/scala/Array.html">http://www.scala-lang.org/api/2.6.0/scala/Array.html</a></p>
 
-
-  
-
-
-g
-                    <a href="#">
-                        <img class="img-responsive" src="img/post-sample-image.jpg" alt="">
-                    </a>
-                    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-
-                    <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-
-                    <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-                    <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
                 </div>
             </div>
         </div>
@@ -222,7 +210,7 @@ g
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="copyright text-muted">Copyright &copy; le webeur  2017</p>
                 </div>
             </div>
         </div>
