@@ -102,30 +102,78 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
+                   Les tableaux dans scala
+-	Définition d’un tableau 
+-	Accès et update des éléments du tableau
+-	Les itérations et transformations sur le tableau
 
-                    <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
+1-Définition et création de tableau 
+Le tableau est une classe Array qui se définit ici : http://www.scala-lang.org/api/2.6.0/scala/Array.html
+Création d’un tableau :
+val  tab = new Array [Int] (10)      
+Où le type d’élément du tableau est de type Int , le tableau ne peut contenir  que des éléments de mêmes types, dans notre cas nous avons un tableau de 10 éléments de type Int
+Nous avons aussi la possibilité de créer une instance d’un tableau comme ceci : 
+val  tab = Array.apply (1,2,3,4,5,6,7,8,9,10) 
+Ou bien en omettant d’utilise le apply qui et une fonction cachée comme il l’en n’existe beaucoup dans scala
+val  tab = Array (1,2,3,4,5,6,7,8,9,10) 
+Nous pouvons aussi créer des tableaux avec plusieurs dimensions dans cette exemple un tableau à 2 dimensions
+Val  mat = Array.ofDim[Int](3,9)
+2- Accès et update des éléments du tableau
+Tous les cas de figure et exemples utiliseront : 
+val tab = Array (1,2,3,4,5)
+L’accès aux éléments du tableau de fait par l’indice du tableau comme ceci
+val  e  = tab(2)
+Où l’indice commence par 0 donc dans notre cas 
+e=3
+Ou bien via « apply » qui se trouve dans la classe Array qui permet de définir une instance de la classe Array
+val  e  = tab.apply(2)    // on tombe sur le même résultat cad e=3 
+Pour modifier un élément d’un  tableau c’est simple, faudra juste affecter la valeur voulue, pour cela nous avons deux façons de le faire  
+Tab(2)=4    ou bien avec la méthode update de Array  tab.update(2,4)   ou 2 est l’indice et 4 la valeur 
+3-Les itérations et transformations sur le tableau
+Nous avons plusieurs manière d’itérer sur un tableau : Itération avec un indice, boucle FOR, WHILE, FOR/UNTIL … avec des syntaxes plus ou moins différentes.
+Itération avec indice :
+var j=0
+while (j<tab.legth) {
+println (tab(j)) 
+j=j+1
+}
+Boucle FOR avec syntaxe particulière 
+for (e <- tab) println(e)
+Boucle FOREACH 
+La méthode que j’utilise le plus pour itérer sur un tableau 
+tab.foreach ( e => println (e))
+ La transformation avec FOR / YIELD
+En gros appliqué un for / yield sur un tableau, revient à créer un nouveau tableau de même type bien sûr , dans cette exemple on va créer un nouveau tableau où ses element seront des multiples de « 2 » des elements du tableau « tab »
+val tab2 = for (e <- tab) yield  e*2 
+Calcul des propriétés d’un tableau et sélection d’une partie d’un tableau
+tab.sum  // return la somme des éléments de tab 
+tab.take(2)  // return un tableau avec les 2 premiers éléments  de tab a parti de l’indice 2  
+Plusieurs autres calculs sur les propriétés d’un tableau  existent dans la class Array : http://www.scala-lang.org/api/2.6.0/scala/Array.html
+filter
+La méthode permet de filtrer un tableau et de sélectionner qu’une partie par rapport a la condition du filtre 
+val  filtre = tab.flter ( e => e <= 2 ) 
+ Ou bien avec le for / yield
+val filtre = for ( e <- tab if e <=2) yield e 
 
-                    <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
+map 
+permet de transformer et d‘itérer sur les éléments d’un tableau  pour en créer un nouveau  tab[A]  -> tab[B]
+val  map=tab.map (e => e*2)
+On obtiendra un nouveau tableau de « tab » ou les éléments du premier seront multiplies par 2
+sortWith
+Permet de trier un tableau 
+val sortWith = tab.sortWith ( (e1,e2) => e1<e2) 
+reduce
+tient son nom de « réduction  » : essaie de réduire le tableau à une valeur , cad transforme chaque couple de tableau en une valeur jusqu’aà obtenir une valeur finale 
+tab.reduce ((e1,e2)=> e1+e2)
+Dans cet exemple ca revient à faire la somme des éléments du tableau 
 
-                    <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
+Liste des opérations exhaustives sont dans http://www.scala-lang.org/api/2.6.0/scala/Array.html
 
-                    <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
 
-                    <h2 class="section-heading">The Final Frontier</h2>
+  
 
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
 
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-
-                    <blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-
-                    <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-
-                    <h2 class="section-heading">Reaching for the Stars</h2>
-
-                    <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-
+g
                     <a href="#">
                         <img class="img-responsive" src="img/post-sample-image.jpg" alt="">
                     </a>
