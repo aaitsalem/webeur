@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -29,6 +29,19 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: red;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #F9F2DE;
+            border: 1px solid #F9F2DE;
+            border-radius: 4px;
+        }
         blockquote {
             font-style: normal;
             font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
@@ -101,56 +114,56 @@
                     <p><strong>Collection immutable :</strong>   Une telle collection ne changera jamais après sa création. Par conséquent, vous pouvez compter sur le fait que l'accès à la même valeur de collection à plusieurs reprises à des moments différents donnera toujours une collection avec les mêmes éléments. Impossible de modifier une des valeurs de la collection, il est seulement possible de les lire. Scala propose toujours par défaut la version immutable</p>
                     <p><strong>Collection mutable :</strong> Est connue pour avoir certaines opérations qui modifient la collection en place. Donc, traiter une collecte mutable signifie que vous devez comprendre quel code modifie la collection</p>
                     <strong>Ex : collection mutable</strong>
-                    <blockquote>val list = scala.collection.mutable.List (1,2,3,4,5)<br>
+                    <pre>val list = scala.collection.mutable.List (1,2,3,4,5)<br>
                                 list+=6 //add 6 a la collection
-                    </blockquote>
+                    </pre>
                     <strong>Ex : collection immutable</strong>
 
-                    <blockquote>val list = scala.collection.immutable.List (1,2,3,4,5)<br>
+                    <pre>val list = scala.collection.immutable.List (1,2,3,4,5)<br>
                         list+=6 //erreur de compilation
-                    </blockquote>
+                    </pre>
                     <p>Si on veut ajouter un élément à cette collection, faudra créer une nouvelle collection</p>
-                    <blockquote>val list = List (1,2,3,4,5)<br>
+                    <pre>val list = List (1,2,3,4,5)<br>
                         println (list) // =List (1,2,3,4,5)<br>
                         val list2 = 6::list<br>
                         println (list2) // = List (6,1,2,3,4,5)
-                    </blockquote>
+                    </pre>
 
                     <h3 style="text-decoration: underline">2- Les collections</h3><br>
                     <strong style="text-decoration: underline">Tuple </strong>
                     <p>Represente un couple de valeurs </p>
-                    <blockquote>def addMult ( x:Int , y : Int ) : Tuple2 [Int,Int] = Tuple2(x+y,x*y)<br>
+                    <pre>def addMult ( x:Int , y : Int ) : Tuple2 [Int,Int] = Tuple2(x+y,x*y)<br>
                         val tuple = addMult(10,20)<br>
                         println (tuple) // (30,200)<br>
                         println (tuple._1, tuple._2 ) //  (30,200)
-                    </blockquote>
+                    </pre>
                     <br>
                     <strong style="text-decoration: underline">Map</strong>
                     <p>La Map est une collection contenant un ensemble de clés valeurs. </p>
                     <p>Par defaut une Map en scala est une collection immutable , cad que vous ne pouvez pas en changer les valeurs directement , si on veut créer une Map mutable faudra a la creation notifier le paquetage scala.collection.mutable </p>
                     <p style="text-decoration: underline">Creation d’une Map immutable</p>
-                    <blockquote>val mapImmutable = Map ("toto" -> 1, "titi"-> 2,"tata"-> 3)<br>
+                    <pre>val mapImmutable = Map ("toto" -> 1, "titi"-> 2,"tata"-> 3)<br>
                         val mapImmutable2= Map (("toto" , 1),("titi", 2),("tata", 3))<br>
                         println (mapImmutable)<br>
                         println (mapImmutable2)<br>
                         println(mapImmutable ( "toto")) //affiche l’element don’t la clé est "toto"
-                    </blockquote>
+                    </pre>
                     <p style="text-decoration: underline">Creation d’un Map mutable</p>
                     <p>Il faut oligatoirement setter le paquetage scala.collection.mutable </p>
-                    <blockquote>val mapMutable= scala.collection.mutable.Map (("toto" , 1),("titi", 2),("tata", 3))<br>
+                    <pre>val mapMutable= scala.collection.mutable.Map (("toto" , 1),("titi", 2),("tata", 3))<br>
                         mapMutable(“toto“)=10<br>
                         // ou bien<br>
                         mapMutable+=“toto“-> 10 //ajouter un élément<br>
                         mapMutable-=“toto“ //enlever un élément
 
-                    </blockquote>
+                    </pre>
 
                     <p>Comme sur les tableaux la modification d’une Map immutable se fait par la création d’une nouvelle Map et dans ce cas faut que la Map soit une variable et non une constante </p>
-                    <blockquote>var map = Map[String,Int]()<br>
+                    <pre>var map = Map[String,Int]()<br>
                         map=map+ (("toto" , 1),("titi", 2),("tata", 3))
-                    </blockquote>
+                    </pre>
                     <p style="text-decoration: underline">Itération sur une Map</p>
-                    <blockquote>
+                    <pre>
                         val map=Map(("toto" , 1),("titi", 2),("tata", 3))<br>
                         map.foreach(e=>println (e))<br>
                         for ( e <- map ) printl (e)<br>
@@ -162,27 +175,27 @@
                         Pour recuperer les clés d’une Map ou ses valeurs<br>
                         val cles = map.keys<br>
                         val valeurs=map.values
-                    </blockquote>
+                    </pre>
                     <strong style="text-decoration: underline">Liste</strong>
 
                     <p>La scala list contient une liste linéaire séquentielle d'éléments. Dans cette liste, chaque élément doit être de même type.elle peut etre vide Nil</p>
                     <p>Le premier élément s’appelle « head » et le reste de la liste « tail »  </p>
-                    <blockquote>var liste = List(0,1,10, 3,4,5) <br>
+                    <pre>var liste = List(0,1,10, 3,4,5) <br>
                         println(liste.head) // affiche le premier élément<br>
                         println(liste.tail) // affiche le reste des élément éléments<br>
                         println (liste(2)) // affiche  10
-                    </blockquote>
+                    </pre>
 
                     <p>Evidement et comme toute collection , la collection List peut contient de nombreuse méthodes de tri , d’inversion de réduction et de transformation</p>
 <strong style="text-decoration: underline">Set</strong>
                     <p>Est un ensemble d’éléments de type Set sans ordre particulier et chaque élément est répété une seule fois  </p>
-                    <blockquote>var liste = Set(0,1,10, 3,4,5)
-                    </blockquote>
+                    <pre>var liste = Set(0,1,10, 3,4,5)
+                    </pre>
                     <p>Les mêmes méthodes de la Liste peuvent s’appliquer sur le Set:  head , tail ,contains, enlever un élément , ajouter un élément...</p>
-                    <blockquote>println(liste+6) // ajoute 6 <br>
+                    <pre>println(liste+6) // ajoute 6 <br>
                         println(liste-0) // enleve le 0
 
-                    </blockquote>
+                    </pre>
 
                     <p>Je ne vais pas ici expliquer tous les elements de la classe Scala collection, il manque les stack : c’est une pile de valeur</p>
                     <p>Stream : c’est une liste qui nous permet d’évoluer dans un premeir temps le premier élément et les autres par la suite si on a besoin </p>
